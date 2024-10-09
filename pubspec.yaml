@@ -72,6 +72,16 @@ flutter:
    - assets/loading_animation_2.json
    - assets/loading_animation_3.json
    - assets/robot.json
+   - assets/grad.png
+   - assets/fonts/NeueMontreal-BoldItalic.otf
+   - assets/fonts/NeueMontreal-Bold.otf
+   - assets/fonts/NeueMontreal-Italic.otf
+   - assets/fonts/NeueMontreal-Light.otf
+   - assets/fonts/NeueMontreal-LightItalic.otf
+   - assets/fonts/NeueMontreal-Medium.otf
+   - assets/fonts/NeueMontreal-MediumItalic.otf
+   - assets/fonts/NeueMontreal-Regular.otf
+   
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -85,12 +95,22 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: NeueMontreal
+      fonts:
+        - asset: assets/fonts/NeueMontreal-Regular.otf
+        - asset: assets/fonts/NeueMontreal-Italic.otf
+          style: italic
+        - asset: assets/fonts/NeueMontreal-Bold.otf
+        - asset: assets/fonts/NeueMontreal-BoldItalic.otf
+          weight: 700 
+        - asset: assets/fonts/NeueMontreal-Light.otf
+        - asset: assets/fonts/NeueMontreal-LightItalic.otf
+          style: italic
+        - asset: assets/fonts/NeueMontreal-Medium.otf
+        - asset: assets/fonts/NeueMontreal-MediumItalic.otf
+          style: italic
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

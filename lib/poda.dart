@@ -51,12 +51,12 @@ class LyricsGeneratorApp extends StatelessWidget {
           fillColor: Colors.black,
         ),
         textTheme: TextTheme(
-          bodyLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 26),
-          bodyMedium: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 24),
-          bodySmall: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 22),
-          titleLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 32),
-          titleMedium: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 28),
-          titleSmall: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 26),
+          bodyLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 26), // Increased by 10
+          bodyMedium: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 24), // Increased by 10
+          bodySmall: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 22), // Increased by 10
+          titleLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 32), // Increased by 10
+          titleMedium: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 28), // Increased by 10
+          titleSmall: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 26), // Increased by 10
         ),
       ),
       home: HomePage(),
@@ -118,8 +118,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   final Gradient _lyricsGradient = LinearGradient(
     colors: [
-      Color(0xFFf12711),
-      Color(0xFFf5af19),
+      Color.fromARGB(255, 131, 131, 131),
+      Color.fromARGB(255, 6, 34, 126),
     ],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
@@ -130,15 +130,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       Color(0xFF8A2387),
       Color(0xFFE94057),
       Color(0xFFF27121),
-    ],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  final Gradient _lycGradient = LinearGradient(
-    colors: [
-      Color(0xFFF27121),
-      Color(0xFF1a2a6c),
     ],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
@@ -156,7 +147,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     _keywordsController = TextEditingController();
     _moodController = TextEditingController();
     _negativePromptController = TextEditingController();
-    _lyricsControllers = List.generate(3, (_) => TextEditingController());
+    lyricsControllers = List.generate(3, () => TextEditingController());
     _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -185,12 +176,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           // Background animation
           Positioned.fill(
             child: Padding(
-              padding: EdgeInsets.all(50),
+              padding: EdgeInsets.all(50), // Adjust this value to change the padding
               child: Opacity(
-                opacity: 0.5,
+                opacity: 0.5, // Adjust this value to change the opacity of the background animation
                 child: Lottie.asset(
                   'assets/robot.json',
-                  fit: BoxFit.contain,
+                  fit: BoxFit.contain, // Changed from BoxFit.cover to BoxFit.contain
                   repeat: true,
                 ),
               ),
@@ -202,9 +193,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               children: [
                 SizedBox(height: 20),
                 Center(
-                  child: GradientText(
+                  child: Text(
                     'Lyrical',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 40, fontFamily: 'NeueMontreal'),gradient: _lycGradient,
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 40,fontFamily: 'NeueMontreal',color: Color(0xFFC33608)),
+                    
                   ),
                 ),
                 Expanded(
@@ -251,10 +243,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Center(
-            child: GradientText(
+            child: Text(
               'Generate Lyrics',
-              gradient: _headingGradient,
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30, fontFamily: 'NeueMontreal', color: Color(0xFFFFFFFF)),
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30,fontFamily: 'NeueMontreal',color: Color(0xFFFFFFFF)),
+              
             ),
           ),
           SizedBox(height: 24),
@@ -275,9 +267,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           Center(
             child: AnimatedGradientButton(
               onPressed: _generateLyrics,
-              child: Text('Generate Lyrics'),
-              primaryColors: primaryColors,
-              secondaryColors: secondaryColors,
+              child: Text('Generate Lyrics',style: TextStyle(fontFamily: 'NeueMontreal',fontWeight: FontWeight.w700, fontSize: 18),),
               isLoading: _isGenerateLoading,
             ),
           ),
@@ -314,16 +304,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         children: [
           Icon(
             _showAdvancedOptions ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-            color: Color(0xFFE94057), // Middle color of the gradient
+            color: Color(0xFF808080), // Middle color of the gradient
             size: 34,
           ),
-          GradientText(
+          Text(
             'Advanced Options',
             style: TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w200,
               fontSize: 24,
+              color: Color(0xFF808080),
             ),
-            gradient: _textGradient,
+            
           ),
         ],
       ),
@@ -362,10 +353,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Center(
-              child: GradientText(
+              child: Text(
                 'Generated Lyrics',
-                gradient: _headingGradient,
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30, fontFamily: 'NeueMontreal', color: Color(0xFFFFFFFF)),
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30,fontFamily: 'NeueMontreal',color: Color(0xFFFFFFFF)),
               ),
             ),
             SizedBox(height: 16),
@@ -377,10 +367,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 controller: _lyricsControllers[_selectedVersion],
                 maxLines: null,
                 minLines: 20,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
+                style: TextStyle(color: Colors.white,fontFamily: 'NeueMontreal', fontWeight: FontWeight.w500, fontSize: 18),
                 decoration: InputDecoration(
                   hintText: 'Generated lyrics will appear here',
-                  hintStyle: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w600, fontSize: 18),
+                  hintStyle: TextStyle(color: Colors.grey[600],fontFamily: 'NeueMontreal', fontWeight: FontWeight.w500, fontSize: 18),
                   fillColor: Colors.black,
                   filled: true,
                   contentPadding: EdgeInsets.all(16),
@@ -404,9 +394,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             Center(
               child: AnimatedGradientButton(
                 onPressed: _refineLyrics,
-                child: Text('Refine Lyrics'),
-                primaryColors: primaryColors,
-                secondaryColors: secondaryColors,
+                child: Text('Refine Lyrics',style: TextStyle(fontFamily: 'NeueMontreal',fontWeight: FontWeight.w700, fontSize: 18),),
                 isLoading: _isRefineLoading,
               ),
             ),
@@ -420,12 +408,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GradientText(
+        Text(
           title,
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25,fontFamily: 'NeueMontreal'),gradient: _textGradient,
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25,color: Color(0xFF808080),fontFamily: 'NeueMontreal'),
         ),
         SizedBox(height: 4),
-        Text(subtitle, style: TextStyle(color: Colors.white, fontFamily: 'NeueMontreal', fontWeight: FontWeight.w300, fontSize: 24)),
+        Text(subtitle, style: TextStyle(color: Colors.white,fontFamily: 'NeueMontreal', fontWeight: FontWeight.w300, fontSize: 24)),
         SizedBox(height: 8),
         _buildInputField(title, controller, hintText, maxLines: maxLines, isRequired: isRequired),
       ],
@@ -436,12 +424,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return TextFormField(
       controller: controller,
       maxLines: maxLines,
-      style: TextStyle(color: Colors.white, fontFamily: 'NeueMontreal', fontWeight: FontWeight.w400, fontSize: 20),
+      style: TextStyle(color: Colors.white,fontFamily: 'NeueMontreal', fontWeight: FontWeight.w400, fontSize: 20), // Increased by 10
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(color: Colors.grey[400], fontFamily: 'NeueMontreal', fontWeight: FontWeight.w400, fontSize: 20),
+        labelStyle: TextStyle(color: Colors.grey[400],fontFamily: 'NeueMontreal', fontWeight: FontWeight.w400, fontSize: 20), // Increased by 10
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.grey[600], fontFamily: 'NeueMontreal', fontWeight: FontWeight.w400, fontSize: 20),
+        hintStyle: TextStyle(color: Colors.grey[600],fontFamily: 'NeueMontreal', fontWeight: FontWeight.w400, fontSize: 20), // Increased by 10
         fillColor: Colors.black,
         filled: true,
         border: OutlineInputBorder(
@@ -474,13 +462,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         children: [
           TabBar(
             tabs: [
-              Tab(child: GradientText('Version 1', gradient: _versionGradient, style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400))),
-              Tab(child: GradientText('Version 2', gradient: _versionGradient, style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400))),
-              Tab(child: GradientText('Version 3', gradient: _versionGradient, style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400))),
+              Tab(child: Text('Version 1',  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400, color: Color(0xFF808080)))),
+              Tab(child: Text('Version 2',  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400, color: Color(0xFF808080)))),
+              Tab(child: Text('Version 3',  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400, color: Color(0xFF808080)))),
             ],
             labelColor: Colors.white,  // Change this line
             unselectedLabelColor: Colors.grey,  // Change this line
-            indicatorColor: Color(0xFFE94057), // Middle color of the gradient
+            indicatorColor: Color(0xFFFFFFFF), // Middle color of the gradient
             onTap: (index) {
               setState(() {
                 _selectedVersion = index;
@@ -563,33 +551,22 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 class AnimatedGradientButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Widget child;
-  final List<Color> primaryColors;
-  final List<Color> secondaryColors;
   final bool isLoading;
 
   const AnimatedGradientButton({
     Key? key,
     required this.onPressed,
     required this.child,
-    required this.primaryColors,
-    required this.secondaryColors,
     this.isLoading = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 50,
+      width: 200, // Set a fixed width for consistency
+      height: 50,  // Set a fixed height for consistency
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFFF27121),
-            Color(0xFF1a2a6c),
-          ],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-        ), // Solid color instead of gradient
+        color: Color(0xFFC33608), // Solid color instead of gradient
         borderRadius: BorderRadius.circular(12),
       ),
       child: Material(
