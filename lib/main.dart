@@ -497,7 +497,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       setState(() => _isGenerateLoading = true);
       try {
         final response = await http.post(
-          Uri.parse('https://lyrical-flask-app.vercel.app/api/generate_lyrics'),
+          Uri.parse('lyrical-flask-app.vercel.app/api/generate_lyrics'),
           body: {
             'description': _descriptionController.text,
             'language': _languageController.text,
@@ -535,7 +535,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     setState(() => _isRefineLoading = true);
     try {
       final response = await http.post(
-        Uri.parse('https://lyrical-flask-app.vercel.app/api/refine_lyrics'),
+        Uri.parse('lyrical-flask-app.vercel.app/api/refine_lyrics'),
         body: {
           'current_lyrics': _lyricsControllers[_selectedVersion].text,
           'keywords': _keywordsController.text.isNotEmpty ? _keywordsController.text : 'Not specified',
