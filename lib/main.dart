@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
+import 'routes.dart';
 
 
 class GradientText extends StatelessWidget {
@@ -82,7 +83,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   late List<TextEditingController> _lyricsControllers;
   int _selectedVersion = 0;
   late TabController _tabController;
-  bool _isLoading = false;
   bool _showAdvancedOptions = false;
   bool isChanged = false;
   List<Color> primaryColors = const [
@@ -111,15 +111,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       Color(0xFF1a2a6c),
       Color(0xFFb21f1f),
       Color(0xFFF27121),
-    ],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  final Gradient _lyricsGradient = LinearGradient(
-    colors: [
-      Color(0xFFf12711),
-      Color(0xFFf5af19),
     ],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
@@ -497,7 +488,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       setState(() => _isGenerateLoading = true);
       try {
         final response = await http.post(
-          Uri.parse('https://lyrical-flask.vercel.app/api/generate_lyrics'),
+          Uri.parse(ApiRoutes.generateLyrics),
           body: {
             'description': _descriptionController.text,
             'language': _languageController.text,
@@ -535,7 +526,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     setState(() => _isRefineLoading = true);
     try {
       final response = await http.post(
-        Uri.parse('https://lyrical-flask.vercel.app/api/refine_lyrics'),
+        Uri.parse(ApiRoutes.refineLyrics),
         body: {
           'current_lyrics': _lyricsControllers[_selectedVersion].text,
           'keywords': _keywordsController.text.isNotEmpty ? _keywordsController.text : 'Not specified',
