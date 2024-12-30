@@ -19,11 +19,12 @@
 <h2 id="layout">🎨 Layout</h2>
 
 <p align="center">
-
 ![Screenshot 2024-12-30 052904](https://github.com/user-attachments/assets/f202696a-e85d-41b1-96e4-7131327c0c61)
 ![Screenshot 2024-12-30 052646](https://github.com/user-attachments/assets/9e207b9f-12ea-4ff1-968e-3695fc9d4e72)
 ![Screenshot 2024-12-30 052736](https://github.com/user-attachments/assets/d0a60c1f-4669-4295-bd8d-abcd30086a2a)
 ![Screenshot 2024-12-30 052841](https://github.com/user-attachments/assets/2f59b06f-ffbd-49bd-89fd-9d2f97f119c3)
+
+
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
