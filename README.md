@@ -11,12 +11,9 @@ Lyrical is an innovative web application built with Flutter that generates lyric
     * [User Input and Preferences](#user-input-and-preferences)
     * [Lyrics Generation](#lyrics-generation)
     * [Responsive Design](#responsive-design)
-3. [Database Structure](#database-structure)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [License](#license)
-7. [Contact](#contact)
-
+3. [Installation](#installation)
+4. [Usage](#usage)
+    
 ---
 
 ## Features  
