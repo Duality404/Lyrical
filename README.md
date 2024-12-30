@@ -10,7 +10,7 @@ Lyrical is an innovative web application built with Flutter that generates lyric
 2. [Modules and Working](#modules-and-working)
     * [User Input and Preferences](#user-input-and-preferences)
     * [Lyrics Generation](#lyrics-generation)
-    * [Responsive Design](#responsive-design)
+    * [Lyrics Refinement](#lyrics-refinement)
 3. [Installation](#installation)
 4. [Usage](#usage)
     
@@ -37,9 +37,10 @@ Lyrical is an innovative web application built with Flutter that generates lyric
 - Inputs are processed using the Gemini API to create unique lyrics.  
 - The results are displayed in an easy-to-read format, allowing users to refine their input and regenerate if needed.  
 
-### Responsive Design  
+### Lyrics Refinement  
 
-- The app is optimized for various devices, ensuring a consistent experience.  
+- Not satisfied with the first 3 versions click Refine Lyrics to generate more variations.
+- The results are again dsiplayed in a easy-to-read format keeping ease of use as primary concern  
 
 ---
 
@@ -69,7 +70,7 @@ Lyrical is an innovative web application built with Flutter that generates lyric
 2. **Interact with the App**:  
 
     - Enter preferences like mood, style, or theme.  
-    - Click "Generate" to create custom lyrics.
-    - Click "Refine" to refine the existing generated lyrics. 
+    - Click "Generate Lyrics" to create custom lyrics.
+    - Click "Refine Lyrics" to refine the existing generated lyrics. 
 
 ---
