@@ -59,7 +59,7 @@ Lyrical is an innovative web application built with Flutter that generates lyric
     ```bash
     flutter pub get
     ```
-4. **Create a routes.dart file under lib directory**
+4. **Create a routes.dart file under lib directory and paste the following code:**
 
     ```dart
    class ApiRoutes {
