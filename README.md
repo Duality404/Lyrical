@@ -13,7 +13,8 @@ Lyrical is an innovative web application built with Flutter that generates lyric
     * [Lyrics Refinement](#lyrics-refinement)
 3. [Installation](#installation)
 4. [Usage](#usage)
-    
+5. [API Server](#api-server)
+
 ---
 
 ## Features  
@@ -39,8 +40,8 @@ Lyrical is an innovative web application built with Flutter that generates lyric
 
 ### Lyrics Refinement  
 
-- Not satisfied with the first 3 versions click Refine Lyrics to generate more variations.
-- The results are again dsiplayed in a easy-to-read format keeping ease of use as primary concern  
+- Not satisfied with the first 3 versions? Click "Refine Lyrics" to generate more variations.  
+- The results are displayed in an easy-to-read format, keeping ease of use as a primary concern.  
 
 ---
 
@@ -58,7 +59,9 @@ Lyrical is an innovative web application built with Flutter that generates lyric
     ```bash
     flutter pub get
     ```
-    
+
+---
+
 ## Usage  
 
 1. **Run the Application**:  
@@ -70,7 +73,15 @@ Lyrical is an innovative web application built with Flutter that generates lyric
 2. **Interact with the App**:  
 
     - Enter preferences like mood, style, or theme.  
-    - Click "Generate Lyrics" to create custom lyrics.
-    - Click "Refine Lyrics" to refine the existing generated lyrics. 
+    - Click "Generate Lyrics" to create custom lyrics.  
+    - Click "Refine Lyrics" to refine the existing generated lyrics.  
 
 ---
+
+## API Server  
+
+The Flask server handling API requests for Lyrical is hosted on **Vercel**.  
+You can access the server's source code:  
+**[Lyrical Flask Repository](https://github.com/Duality404/lyrical-flask)**  
+
+This server communicates with the Gemini API to process user inputs and return generated lyrics.  
